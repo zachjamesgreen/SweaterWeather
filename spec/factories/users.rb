@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :user do
-    email { "MyString" }
-    password_digest { "MyString" }
-    api_key { "" }
+    email { Faker::Internet.email }
   end
 end
