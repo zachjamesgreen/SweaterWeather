@@ -31,6 +31,7 @@ group :development, :test do
   gem 'active_model_serializers', '~> 0.10.0'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'awesome_print'
 end
 
 group :development do
