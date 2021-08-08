@@ -32,6 +32,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'awesome_print'
+  gem 'shoulda-matchers'
 end
 
 group :development do
