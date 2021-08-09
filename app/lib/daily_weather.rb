@@ -1,7 +1,7 @@
 class DailyWeather < Weather
-  attr_reader :datetime, :sunrise, :sunset, :temp, :feels_like, :humidity, :uvi, :visibility, :conditions, :icon
+  attr_reader :date, :sunrise, :sunset, :temp, :feels_like, :humidity, :uvi, :visibility, :conditions, :icon
   def initialize(info)
-    @datetime   = Time.at(info['dt'])
+    @date   = Time.at(info['dt'])
     @sunrise    = Time.at(info['sunrise'])
     @sunset     = Time.at(info['sunset'])
     @max_temp   = info['temp']['min']
