@@ -22,7 +22,7 @@ class Breweries
       type: 'breweries',
       attributes: {
         destination: @destination,
-        forcast: @forcast,
+        forecast: @forcast,
         breweries: @breweries, #.map { |brewery| brewery.serialize },
       }
     }
