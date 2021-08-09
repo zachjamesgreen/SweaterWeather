@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "/breweries", type: :request do
-  describe 'errors'do
+  describe 'errors' do
     it 'returns error if location is not present' do
       get '/api/v1/breweries'
       expect(response).to be_a_bad_request
@@ -29,6 +29,12 @@ RSpec.describe "/breweries", type: :request do
       expect(data['attributes']['forecast'].keys.size).to eq 2
       expect(data['attributes']['breweries'][0].keys).to include('id', 'name', 'brewery_type')
       expect(data['attributes']['breweries'][0].keys.size).to eq 3
+    end
+
+    it 'response has correct number of breweries' do
+      get '/api/v1/breweries?location=denver&quantity=1'
+      attributes = JSON.parse(response.body)['data']['attributes']
+      expect(attributes['breweries'].size).to eq 1
     end
   end
 end
