@@ -31,9 +31,9 @@ http_interactions:
       cache-control:
       - no-cache
       x-request-id:
-      - c9a12264-4db8-422c-a778-2168ce58a8a2
+      - e5205c64-63d8-4137-81f3-f1a0fde76b13
       x-runtime:
-      - '0.009110'
+      - '0.016080'
       strict-transport-security:
       - max-age=31536000; includeSubDomains
       via:
@@ -41,15 +41,15 @@ http_interactions:
       accept-ranges:
       - bytes
       date:
-      - Mon, 09 Aug 2021 05:26:11 GMT
+      - Mon, 09 Aug 2021 05:37:50 GMT
       x-served-by:
-      - cache-dca17732-DCA, cache-den8247-DEN
+      - cache-dca17779-DCA, cache-den8247-DEN
       x-cache:
       - MISS, MISS
       x-cache-hits:
       - 0, 0
       x-timer:
-      - S1628486772.501997,VS0,VE57
+      - S1628487471.714511,VS0,VE76
       vary:
       - Accept-Encoding, Origin,Authorization,client-geo-region
       transfer-encoding:
@@ -57,7 +57,7 @@ http_interactions:
     body:
       encoding: ASCII-8BIT
       string: '{"errors":["OAuth error: The access token is invalid"]}'
-  recorded_at: Mon, 09 Aug 2021 05:26:48 GMT
+  recorded_at: Mon, 09 Aug 2021 05:38:28 GMT
 - request:
     method: get
     uri: https://api.unsplash.com/search/photos?client_id=<UNSPLASH_API_KEY>&page=1&per_page=1&query=denver
@@ -117,17 +117,17 @@ http_interactions:
       accept-ranges:
       - bytes
       date:
-      - Mon, 09 Aug 2021 05:38:27 GMT
+      - Mon, 09 Aug 2021 05:38:26 GMT
       age:
       - '0'
       x-served-by:
-      - cache-dca17730-DCA, cache-den8238-DEN
+      - cache-dca17730-DCA, cache-den8259-DEN
       x-cache:
-      - MISS, HIT
+      - MISS, MISS
       x-cache-hits:
-      - 0, 1
+      - 0, 0
       x-timer:
-      - S1628487507.205867,VS0,VE1
+      - S1628487507.674455,VS0,VE124
       vary:
       - Accept-Encoding, Origin,Authorization,client-geo-region
     body:
