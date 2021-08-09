@@ -8,10 +8,6 @@ class Breweries
     @breweries = []
   end
 
-  # def << (brewery)
-  #   @breweries << brewery
-  # end
-
   def create_forcast(current_weather)
     Forcast.new(current_weather.conditions, current_weather.temp)
   end
