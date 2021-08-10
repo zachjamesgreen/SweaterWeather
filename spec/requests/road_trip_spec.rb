@@ -45,20 +45,5 @@ RSpec.describe "/road_trip", type: :request do
       expect(data['attributes']['weather_at_eta'].keys).to include('temperature', 'conditions')
       expect(data['attributes']['weather_at_eta'].keys.count).to eq 2
     end
-
-    xit 'weather data within 48 hours' do
-      post '/api/v1/road_trip', params: {origin: 'denver,co', destination: 'englewood,co', api_key: @user.api_key}
-      data = JSON.parse(response.body)['data']
-      weather = data['attributes']['weather_at_eta']
-      expect(weather.time).be < (Time.now + 48.hours)
-    end
-
-    xit 'weather data outside of 48 hours' do
-      post '/api/v1/road_trip', params: {origin: 'denver,co', destination: 'anchorage,ak', api_key: @user.api_key}
-      data = JSON.parse(response.body)['data']
-      weather = data['attributes']['weather_at_eta']
-      expect(weather.date).be < (Time.now + 48.hours)
-      expect(weather.date).be > (Time.now + 7.days)
-    end
   end
 end
