@@ -1,4 +1,6 @@
 class Api::V1::ForecastController < ApplicationController
+  # skip_before_action :ensure_json_request
+  
   def index
     render status: :bad_request, json: { error: 'need city and state' } and return unless params[:location].present?
 
