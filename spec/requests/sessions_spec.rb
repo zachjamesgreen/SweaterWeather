@@ -45,20 +45,20 @@ RSpec.describe "/sessions", type: :request do
       end
     end
 
-    # context 'only accept JSON' do
-    #   it 'returns parse error if body cant be parsed' do
-    #     post '/api/v1/users?email=test&password=test&password_confirmation=test', headers: @headers
-    #     expect(response).to be_unprocessable
-    #     body = JSON.parse(response.body)
-    #     expect(body['error']).to eq('problem parsing request body')
-    #   end
+    context 'only accept JSON' do
+      it 'returns parse error if body cant be parsed' do
+        post "/api/v1/sessions?email=#{@user.email}&password=#{@user.password}", headers: @header
+        expect(response).to be_unprocessable
+        body = JSON.parse(response.body)
+        expect(body['error']).to eq('problem parsing request body')
+      end
 
-    #   it 'returns error if json header is not sent' do
-    #     post '/api/v1/users?email=test&password=test&password_confirmation=test'
-    #     expect(response).to be_unprocessable
-    #     body = JSON.parse(response.body)
-    #     expect(body['error']).to eq('this route only takes json data')
-    #   end
-    # end
+      it 'returns error if json header is not sent' do
+        post "/api/v1/sessions?email=#{@user.email}&password=#{@user.password}"
+        expect(response).to be_unprocessable
+        body = JSON.parse(response.body)
+        expect(body['error']).to eq('this route only takes json data')
+      end
+    end
   end
 end
