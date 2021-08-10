@@ -1,21 +1,28 @@
 class RoadTrip
   attr_reader :start_city, :end_city, :travel_time, :weather_at_eta
-  Struct.new('Weather', :temperature, :conditions)
 
-  def initialize(start_city, end_city, info)
+  def initialize(start_city, end_city)
     @start_city = start_city
     @end_city = end_city
-    @travel_time = get_travel_time(info)
-    @weather_at_eta = get_weather
+    @travel_time = get_travel_time()
+    @weather_at_eta = get_weather()
     # binding.pry
   end
 
-  def get_travel_time(info)
+  def get_travel_time
+    route = get_route()
     {
-      real_time: Time.now + info['route']['realTime'],
-      time: Time.now + info['route']['time'],
-      formatted_time: info['route']['formattedTime']
+      real_time: Time.now + route['route']['realTime'],
+      time: Time.now + route['route']['time'],
+      formatted_time: route['route']['formattedTime']
     }
+  end
+
+  def get_route
+    res = Geocode.route(@start_city, @end_city)
+    json = JSON.parse(res.body)
+    raise RoadTripError, json['info']['messages'] if json['info']['statuscode'] != 0
+    json
   end
 
   def get_weather
@@ -31,7 +38,6 @@ class RoadTrip
       # daily weather for 7 days
       weather_res[1].find do |weather|
         diff = (weather.date - @travel_time[:real_time]).abs
-        ap weather.date
         0 <= diff && diff <= (60 * 60 * 12)
       end
     else
