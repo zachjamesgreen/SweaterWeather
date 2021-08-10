@@ -18,7 +18,7 @@ class CurrentWeather < Weather
       datetime: @datetime.to_s(:db),
       sunrise: @sunrise.to_s(:db),
       sunset: @sunset.to_s(:db),
-      temp: @temp,
+      temperature: @temp,
       feels_like: @feels_like,
       humidity: @humidity,
       uvi: @uvi,
