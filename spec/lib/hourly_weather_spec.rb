@@ -11,7 +11,7 @@ RSpec.describe HourlyWeather do
     expect(dw).to have_attributes(
       class: HourlyWeather,
       time: be_a(Time),
-      temp: be_a(Numeric),
+      temperature: be_a(Numeric),
       conditions: be_a(String),
       icon: be_a(String)
     )

@@ -7,16 +7,6 @@ class Api::V1::ForecastController < ApplicationController
     lat, lng = Geocoder.coords(params[:location])
     current, daily, hourly = WeatherFacade.weather(lat, lng)
     
-    render status: 200, json: {
-      data: {
-        id: nil,
-        type: 'forecast',
-        attributes: {
-          current_weather: current.serialize,
-          daily_weather: daily.map(&:serialize),
-          hourly_weather: hourly.map(&:serialize)
-        }
-      }
-    }
+    render json: ForecastSerializer.serialize(current, daily, hourly)
   end
 end

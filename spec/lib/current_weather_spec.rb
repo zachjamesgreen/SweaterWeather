@@ -13,7 +13,7 @@ RSpec.describe CurrentWeather do
       datetime: be_a(Time),
       sunrise: be_a(Time),
       sunset: be_a(Time),
-      temp: be_a(Numeric),
+      temperature: be_a(Numeric),
       feels_like: be_a(Numeric),
       humidity: be_a(Numeric),
       uvi: be_a(Numeric),

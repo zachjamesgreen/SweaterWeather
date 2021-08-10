@@ -48,7 +48,7 @@ class RoadTrip
   def serialize
     weather = if @weather_at_eta
                 {
-                 temperature: @weather_at_eta.temp,
+                 temperature: @weather_at_eta.temperature,
                  conditions: @weather_at_eta.conditions
                 }
               else

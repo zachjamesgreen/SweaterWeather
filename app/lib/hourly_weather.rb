@@ -1,8 +1,8 @@
 class HourlyWeather < Weather
-  attr_reader :time, :temp, :conditions, :icon
+  attr_reader :time, :temperature, :conditions, :icon
   def initialize(info)
     @time       = Time.at(info['dt'])
-    @temp       = info['temp']
+    @temperature       = info['temp']
     @conditions = info['weather'][0]['description']
     @icon       = info['weather'][0]['icon']
   end
@@ -10,7 +10,7 @@ class HourlyWeather < Weather
   def serialize
     {
       time: @time.to_s(:time),
-      temp: @temp,
+      temperature: @temperature,
       conditions: @conditions,
       icon: @icon
     }
