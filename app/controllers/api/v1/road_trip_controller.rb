@@ -4,8 +4,19 @@ class Api::V1::RoadTripController < ApplicationController
   def index
     road_trip = RoadTripFacade.route(road_trip_params[:origin], road_trip_params[:destination])
     render json: {data: road_trip.serialize}
-  rescue RoadTripError => e
-    render status: :unprocessable_entity, json: {error: e.message}
+  rescue RoadTripError
+    render json: {
+      data: {
+        id: nil,
+        type: 'roadtrip',
+        attributes: {
+          start_city: road_trip_params[:origin],
+          end_city: road_trip_params[:destination],
+          travel_time: 'impossible',
+          weather_at_eta: {}
+        }
+      }
+    }
   end
 
   private

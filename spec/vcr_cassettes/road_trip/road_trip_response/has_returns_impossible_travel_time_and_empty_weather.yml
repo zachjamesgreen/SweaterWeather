@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://www.mapquestapi.com/directions/v2/route?key=<MAPQUEST_API_KEY>
+    body:
+      encoding: UTF-8
+      string: '{"locations":["denver","london"]}'
+    headers:
+      User-Agent:
+      - Faraday v1.6.0
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      date:
+      - Tue, 10 Aug 2021 02:49:14 GMT
+      content-type:
+      - application/json;charset=UTF-8
+      content-length:
+      - '278'
+      set-cookie:
+      - JSESSIONID=26D02E9ED73E76D94596527275D51C24; Path=/directions; HttpOnly
+      expires:
+      - Mon, 20 Dec 1998 01:00:00 GMT
+      last-modified:
+      - Tue, 10 Aug 2021 02:49:14 GMT
+      cache-control:
+      - no-cache, must-revalidate
+      pragma:
+      - no-cache
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-methods:
+      - OPTIONS,GET,POST
+      status:
+      - success
+      transactionweight:
+      - '1'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJyb3V0ZSI6eyJyb3V0ZUVycm9yIjp7ImVycm9yQ29kZSI6MiwibWVzc2FnZSI6IiJ9fSwiaW5mbyI6eyJzdGF0dXNjb2RlIjo0MDIsImNvcHlyaWdodCI6eyJpbWFnZUFsdFRleHQiOiLCqSAyMDIxIE1hcFF1ZXN0LCBJbmMuIiwiaW1hZ2VVcmwiOiJodHRwOi8vYXBpLm1xY2RuLmNvbS9yZXMvbXFsb2dvLmdpZiIsInRleHQiOiLCqSAyMDIxIE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbIldlIGFyZSB1bmFibGUgdG8gcm91dGUgd2l0aCB0aGUgZ2l2ZW4gbG9jYXRpb25zLiJdfX0=
+  recorded_at: Tue, 10 Aug 2021 02:49:55 GMT
+recorded_with: VCR 6.0.0

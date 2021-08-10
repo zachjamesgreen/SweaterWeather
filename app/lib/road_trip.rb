@@ -58,8 +58,8 @@ class RoadTrip
       id: nil,
       type: 'roadtrip',
       attributes: {
-        origin: @start_city,
-        destination: @end_city,
+        start_city: @start_city,
+        end_city: @end_city,
         travel_time: @travel_time[:formatted_time],
         weather_at_eta: weather
       }
