@@ -1,5 +1,6 @@
-class HourlyWeather < Weather
+class HourlyWeather
   attr_reader :time, :temperature, :conditions, :icon
+
   def initialize(info)
     @time       = Time.at(info['dt'])
     @temperature       = info['temp']

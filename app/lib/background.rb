@@ -1,5 +1,6 @@
 class Background
   attr_reader :id, :width, :height, :description, :urls, :user
+
   Struct.new('UnsplashUser', :name, :link)
 
   def initialize(info)

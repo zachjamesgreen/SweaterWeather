@@ -12,5 +12,4 @@ class ForecastSerializer
       }
     }
   end
-
 end

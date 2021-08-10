@@ -1,4 +1,4 @@
-class CurrentWeather < Weather
+class CurrentWeather
   attr_reader :datetime, :sunrise, :sunset, :temperature, :feels_like, :humidity, :uvi, :visibility, :conditions, :icon
   def initialize(info)
     @datetime    = Time.at(info['current']['dt'])

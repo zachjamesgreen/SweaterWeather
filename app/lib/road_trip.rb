@@ -4,11 +4,11 @@ class RoadTrip
   def initialize(start_city, end_city)
     @start_city = start_city
     @end_city = end_city
-    @travel_time = get_travel_time()
-    @weather_at_eta = get_weather()
+    @travel_time = parse_travel_time
+    @weather_at_eta = get_weather
   end
 
-  def get_travel_time
+  def parse_travel_time
     route = get_route()
     {
       real_time: Time.now + route['route']['realTime'],
@@ -39,11 +39,9 @@ class RoadTrip
         diff = (weather.date - @travel_time[:real_time]).abs
         0 <= diff && diff <= (60 * 60 * 12)
       end
-    else
-      nil
     end
   end
-''
+
   def serialize
     {
       id: nil,

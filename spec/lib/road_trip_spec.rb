@@ -17,7 +17,7 @@ RSpec.describe RoadTrip do
 
   describe '#get_travel_time', :vcr do
     it 'returns a hash with 3 keys' do
-      time_data = @short_road_trip.get_travel_time
+      time_data = @short_road_trip.parse_travel_time
       expect(time_data.keys).to include(:real_time, :time, :formatted_time)
       expect(time_data.keys.size).to eq(3)
       expect(time_data[:real_time]).to be_a(Time)

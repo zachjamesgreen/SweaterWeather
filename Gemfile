@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print'
   gem 'shoulda-matchers'
+  gem 'rubocop'
 end
 
 group :development do
