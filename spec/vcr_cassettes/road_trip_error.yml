@@ -17,17 +17,17 @@ http_interactions:
       message: ''
     headers:
       date:
-      - Mon, 09 Aug 2021 20:08:00 GMT
+      - Tue, 10 Aug 2021 02:31:30 GMT
       content-type:
       - application/json;charset=UTF-8
       content-length:
       - '278'
       set-cookie:
-      - JSESSIONID=D806C8B3E3AE4CB99DC615CABB2E4C1D; Path=/directions; HttpOnly
+      - JSESSIONID=DE4E6F4CF0D07CD28882F41750DE4509; Path=/directions; HttpOnly
       expires:
       - Mon, 20 Dec 1998 01:00:00 GMT
       last-modified:
-      - Mon, 09 Aug 2021 20:08:00 GMT
+      - Tue, 10 Aug 2021 02:31:30 GMT
       cache-control:
       - no-cache, must-revalidate
       pragma:
@@ -44,5 +44,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         eyJyb3V0ZSI6eyJyb3V0ZUVycm9yIjp7ImVycm9yQ29kZSI6MiwibWVzc2FnZSI6IiJ9fSwiaW5mbyI6eyJzdGF0dXNjb2RlIjo0MDIsImNvcHlyaWdodCI6eyJpbWFnZUFsdFRleHQiOiLCqSAyMDIxIE1hcFF1ZXN0LCBJbmMuIiwiaW1hZ2VVcmwiOiJodHRwOi8vYXBpLm1xY2RuLmNvbS9yZXMvbXFsb2dvLmdpZiIsInRleHQiOiLCqSAyMDIxIE1hcFF1ZXN0LCBJbmMuIn0sIm1lc3NhZ2VzIjpbIldlIGFyZSB1bmFibGUgdG8gcm91dGUgd2l0aCB0aGUgZ2l2ZW4gbG9jYXRpb25zLiJdfX0=
-  recorded_at: Mon, 09 Aug 2021 20:08:40 GMT
+  recorded_at: Tue, 10 Aug 2021 02:32:11 GMT
 recorded_with: VCR 6.0.0
