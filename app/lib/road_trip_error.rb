@@ -1,0 +1,1 @@
+class RoadTripError < StandardError; end
