@@ -1,7 +1,7 @@
 class Geocoder
   # Param : address String
   # Return : Array Floats
-  def self.geocode(address)
+  def self.coords(address)
     res = Geocode.geocode(address)
     json = JSON.parse(res.body)
     lat = json['results'][0]['locations'][0]['latLng']['lat']
