@@ -10,9 +10,9 @@ RSpec.describe DailyWeather do
     dw = DailyWeather.new(@data['daily'][0])
     expect(dw).to have_attributes(
       class: DailyWeather,
-      date: match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/),
-      sunrise: match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/),
-      sunset: match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/),
+      date: be_a(Time),
+      sunrise: be_a(Time),
+      sunset: be_a(Time),
       max_temp: be_a(Numeric),
       min_temp: be_a(Numeric),
       conditions: be_a(String),

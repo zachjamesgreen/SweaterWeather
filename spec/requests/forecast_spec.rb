@@ -20,5 +20,13 @@ RSpec.describe "/forecast", type: :request do
       expect(data.keys).to include('id', 'type', 'attributes')
       expect(data['attributes'].keys).to include('current_weather', 'daily_weather', 'hourly_weather')
     end
+
+    it 'has correct time formats on current_weather, daily_weather, hourly_weather' do
+      get '/api/v1/forecast?location=denver,co'
+      attrs = JSON.parse(response.body)['data']['attributes']
+      expect(attrs['current_weather']['datetime']).to match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/)
+      expect(attrs['daily_weather'][0]['date']).to match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/)
+      expect(attrs['hourly_weather'][0]['time']).to match(/\d{2}:\d{2}/)
+    end
   end
 end

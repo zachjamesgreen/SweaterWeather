@@ -10,7 +10,7 @@ RSpec.describe HourlyWeather do
     dw = HourlyWeather.new(@data['hourly'][0])
     expect(dw).to have_attributes(
       class: HourlyWeather,
-      time: match(/\d{2}:\d{2}/),
+      time: be_a(Time),
       temp: be_a(Numeric),
       conditions: be_a(String),
       icon: be_a(String)

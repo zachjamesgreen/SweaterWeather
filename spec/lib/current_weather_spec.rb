@@ -10,9 +10,9 @@ RSpec.describe CurrentWeather do
     cw = CurrentWeather.new(@data)
     expect(cw).to have_attributes(
       class: CurrentWeather,
-      datetime: match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/),
-      sunrise: match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/),
-      sunset: match(/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}/),
+      datetime: be_a(Time),
+      sunrise: be_a(Time),
+      sunset: be_a(Time),
       temp: be_a(Numeric),
       feels_like: be_a(Numeric),
       humidity: be_a(Numeric),
