@@ -5,12 +5,16 @@ class Api::V1::UsersController < ApplicationController
     
     body = JSON.parse request.raw_post
     if body['password'] == body['password_confirmation']
-      @user = User.create(email: body['email'], password: body['password'])
+      @user = User.create!(email: body['email'], password: body['password'])
       render json: @user.reload, status: :created
     else
-      render json: { errors: 'Something went wrong' }, status: :unprocessable_entity
+      render json: { 
+                    errors: 'please be sure to send email, password, and password_confirmation. and make sure password and confirmation match' 
+                   }, status: :unprocessable_entity
     end
   rescue JSON::ParserError
     render status: :unprocessable_entity, json: { error: 'problem parsing request body' }
+  rescue ActiveRecord::RecordInvalid
+    render status: :unprocessable_entity, json: { error: 'email already taken' }
   end
 end
