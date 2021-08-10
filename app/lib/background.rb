@@ -3,7 +3,6 @@ class Background
   Struct.new('UnsplashUser', :name, :link)
 
   def initialize(info)
-    binding.pry if info['user'].nil?
     @id = info['id']
     @width = info['width']
     @height = info['height']

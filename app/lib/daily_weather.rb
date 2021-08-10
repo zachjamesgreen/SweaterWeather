@@ -21,8 +21,4 @@ class DailyWeather < Weather
       icon: @icon
     }
   end
-
-  def temp
-    @max_temp
-  end
 end

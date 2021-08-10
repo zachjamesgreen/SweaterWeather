@@ -6,7 +6,6 @@ class RoadTrip
     @end_city = end_city
     @travel_time = get_travel_time()
     @weather_at_eta = get_weather()
-    # binding.pry
   end
 
   def get_travel_time
@@ -46,14 +45,6 @@ class RoadTrip
   end
 ''
   def serialize
-    weather = if @weather_at_eta
-                {
-                 temperature: @weather_at_eta.temperature,
-                 conditions: @weather_at_eta.conditions
-                }
-              else
-                nil
-              end
     {
       id: nil,
       type: 'roadtrip',
@@ -61,7 +52,10 @@ class RoadTrip
         start_city: @start_city,
         end_city: @end_city,
         travel_time: @travel_time[:formatted_time],
-        weather_at_eta: weather
+        weather_at_eta: {
+                          temperature: @weather_at_eta.temperature,
+                          conditions: @weather_at_eta.conditions
+                        }
       }
     }
   end

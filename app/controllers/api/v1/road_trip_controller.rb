@@ -6,18 +6,6 @@ class Api::V1::RoadTripController < ApplicationController
     render json: {data: road_trip.serialize}
   rescue RoadTripError
     render json: RoadTripSerializer.impossible(road_trip_params)
-    # {
-    #   data: {
-    #     id: nil,
-    #     type: 'roadtrip',
-    #     attributes: {
-    #       start_city: road_trip_params[:origin],
-    #       end_city: road_trip_params[:destination],
-    #       travel_time: 'impossible',
-    #       weather_at_eta: {}
-    #     }
-    #   }
-    # }
   end
 
   private

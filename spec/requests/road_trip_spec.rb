@@ -20,13 +20,6 @@ RSpec.describe "/road_trip", type: :request do
       post '/api/v1/road_trip', params: {api_key: 'not_a_user_api_key'}
       expect(response).to be_unauthorized
     end
-
-    # it 'returns error if route can not be found' do
-    #   VCR.use_cassette('road_trip_error') do
-    #     post '/api/v1/road_trip', params: {origin: 'denver', destination: 'london', api_key: @user.api_key}
-    #   end
-    #   expect(response).to be_unprocessable
-    # end
   end
 
   describe 'road_trip response', :vcr do
@@ -53,7 +46,7 @@ RSpec.describe "/road_trip", type: :request do
       expect(data.keys.count).to eq 3
       expect(data['attributes'].keys).to include('start_city', 'end_city', 'travel_time', 'weather_at_eta')
       expect(data['attributes'].keys.count).to eq 4
-      expect(data['attributes']['weather_at_eta'].keys.count).to eq 0
+      expect(data['attributes']['weather_at_eta']).to eq({})
       expect(data['attributes']['travel_time']).to eq 'impossible'
     end
   end
