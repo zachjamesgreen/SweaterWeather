@@ -1,21 +1,16 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    if check_password
-      @user = User.create(user_params)
+    render status: :unprocessable_entity, json: { error: 'this route only takes json data' } and return if request.content_type != 'application/json'
+    
+    @body = JSON.parse request.raw_post
+    if @body['password'] == @body['password_confirmation']
+      @user = User.create(email: @body['email'], password: @body['password'])
       render json: @user.reload, status: :created
     else
       render json: { errors: 'Something went wrong' }, status: :unprocessable_entity
     end
-  end
-
-  private
-
-  def check_password
-    params['password'] == params['password_confirmation']
-  end
-
-  def user_params
-    params.permit(:email, :password)
+  rescue JSON::ParserError
+    render status: :unprocessable_entity, json: { error: 'problem parsing request body' }
   end
 end
